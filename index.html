@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Phantom Tag - A Web Development Mystery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Terminal Background -->
+    <div class="terminal-bg"></div>
+    
+    <!-- Main Terminal Window -->
+    <div class="terminal-window">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <div class="control-btn close"></div>
+                <div class="control-btn minimize"></div>
+                <div class="control-btn maximize"></div>
+            </div>
+            <div class="terminal-title">phantom-tag-investigation.exe</div>
+        </div>
+        
+        <!-- Terminal Content -->
+        <div class="terminal-content">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="terminal-screen">
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">./start_investigation.sh</span>
+                </div>
+                <div class="terminal-output">
+                    <div class="output-line">Initializing Phantom Tag Investigation System...</div>
+                    <div class="output-line">Loading web development mystery database...</div>
+                    <div class="output-line">Establishing secure connection to college servers...</div>
+                    <div class="output-line">Ready to begin investigation.</div>
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="cursor-blink">_</span>
+                </div>
+            </div>
+
+            <!-- Investigation Screen -->
+            <div id="investigation-screen" class="terminal-screen hidden">
+                <!-- Header Info -->
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">cat investigation_status.txt</span>
+                </div>
+                <div class="terminal-output">
+                    <div class="output-line">========================================</div>
+                    <div class="output-line">THE PHANTOM TAG - WEB DEV MYSTERY</div>
+                    <div class="output-line">========================================</div>
+                    <div class="output-line">Every midnight, the college website shifts by 1px</div>
+                    <div class="output-line">Someone is editing the code. Find the source.</div>
+                    <div class="output-line">========================================</div>
+                </div>
+
+                <!-- Progress Display -->
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">./check_progress.sh</span>
+                </div>
+                <div class="terminal-output">
+                    <div class="output-line">Investigation Progress: <span id="progress-text" class="highlight">0/5</span></div>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                </div>
+
+                <!-- Timer Display -->
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">./timer.sh</span>
+                </div>
+                <div class="terminal-output">
+                    <div class="output-line">Investigation Time: <span id="timer-display" class="highlight">00:00</span></div>
+                    <div class="output-line">Status: <span id="timer-status" class="status">READY TO BEGIN...</span></div>
+                </div>
+
+                <!-- Question Display -->
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">./ask_question.sh</span>
+                </div>
+                <div class="terminal-output">
+                    <div class="output-line">========================================</div>
+                    <div class="output-line">QUESTION <span id="question-number">1</span>/5:</div>
+                    <div class="output-line">========================================</div>
+                    <div id="question-text" class="question-text"></div>
+                    <div class="output-line">========================================</div>
+                </div>
+
+                <!-- Input Section -->
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="cursor-blink">_</span>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="answer-input" class="terminal-input" placeholder="Enter your answer..." autocomplete="off">
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">./submit_answer.sh</span>
+                </div>
+                <button id="submit-btn" class="terminal-button">SUBMIT</button>
+            </div>
+
+            <!-- Feedback Screen -->
+            <div id="feedback-screen" class="terminal-screen hidden">
+                <div id="feedback-content"></div>
+            </div>
+
+            <!-- Debug Screen -->
+            <div id="debug-screen" class="terminal-screen hidden">
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">./debug.sh</span>
+                </div>
+                <div class="terminal-output">
+                    <div class="output-line">========================================</div>
+                    <div class="output-line">DEBUG IN PROGRESS...</div>
+                    <div class="output-line">========================================</div>
+                    <div class="debug-line">Analyzing code patterns...</div>
+                    <div class="debug-line">Cross-referencing timestamps...</div>
+                    <div class="debug-line">Identifying phantom signature...</div>
+                    <div class="output-line">========================================</div>
+                </div>
+            </div>
+
+            <!-- Final Reveal Screen -->
+            <div id="final-screen" class="terminal-screen hidden">
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">./solve_mystery.sh</span>
+                </div>
+                <div class="terminal-output">
+                    <div class="output-line">========================================</div>
+                    <div class="output-line">MYSTERY SOLVED!</div>
+                    <div class="output-line">========================================</div>
+                    <div class="output-line">The phantom was an auto-running debug script!</div>
+                    <div class="output-line">========================================</div>
+                </div>
+
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">cat phantom_script.js</span>
+                </div>
+                <div class="terminal-output code-block">
+                    <div class="code-line">// Auto-running debug script</div>
+                    <div class="code-line">setInterval(() => {</div>
+                    <div class="code-line indent">document.body.style.transform = 'translateX(1px)';</div>
+                    <div class="code-line indent">document.title = 'HELP';</div>
+                    <div class="code-line">}, 86400000); // Every 24 hours</div>
+                </div>
+
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="command">./final_report.sh</span>
+                </div>
+                <div class="terminal-output">
+                    <div class="output-line">========================================</div>
+                    <div class="output-line">INVESTIGATION COMPLETED IN:</div>
+                    <div class="output-line"><span id="final-timer" class="highlight">00:00</span></div>
+                    <div class="output-line">Performance: <span id="timer-performance" class="highlight">EXCELLENT</span></div>
+                    <div class="output-line">========================================</div>
+                </div>
+
+                <div class="terminal-line">
+                    <span class="prompt">user@phantom-tag:~$</span> <span class="cursor-blink">_</span>
+                </div>
+                <button id="restart-btn" class="terminal-button">RESTART INVESTIGATION</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Terminal Elements -->
+    <div class="floating-elements">
+        <div class="floating-text">&lt;body&gt;</div>
+        <div class="floating-text">&lt;script&gt;</div>
+        <div class="floating-text">console.log()</div>
+        <div class="floating-text">#48454C50</div>
+        <div class="floating-text">F12</div>
+        <div class="floating-text">$ cat</div>
+        <div class="floating-text">./debug.sh</div>
+        <div class="floating-text">sudo rm</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
